@@ -126,17 +126,21 @@ public class FormularioMaterias extends javax.swing.JInternalFrame {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-        int idMateria = Integer.parseInt(jTextFieldCodigo.getText());
-        String materiaNombre = jTextFieldNombreMateria.getText();
-        int anio = Integer.parseInt(jTextFieldAnio.getText());
+        try {
+            int idMateria = Integer.parseInt(jTextFieldCodigo.getText());
+            String materiaNombre = jTextFieldNombreMateria.getText();
+            int anio = Integer.parseInt(jTextFieldAnio.getText());
         
-        Materia materia = new Materia(idMateria, title, anio);
-        VistaPrincipal.materiasSet.add(materia);
-        JOptionPane.showMessageDialog(null, "Materia guardada exitosamente.");
-        
-        jTextFieldAnio.setText("");
-        jTextFieldCodigo.setText("");
-        jTextFieldNombreMateria.setText("");
+            Materia materia = new Materia(idMateria, materiaNombre, anio);
+            VistaPrincipal.materiasSet.add(materia);
+            JOptionPane.showMessageDialog(null, "Materia guardada exitosamente.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Intentelo de nuevo");
+        }finally {
+            jTextFieldAnio.setText("");
+            jTextFieldCodigo.setText("");
+            jTextFieldNombreMateria.setText("");
+        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 

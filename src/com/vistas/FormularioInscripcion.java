@@ -7,6 +7,7 @@ package com.vistas;
 
 import com.colegio.Alumno;
 import com.colegio.Materia;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +46,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jButtonInscribir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonInscribir.setText("Inscribir");
         jButtonInscribir.setPreferredSize(new java.awt.Dimension(120, 100));
+        jButtonInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInscribirActionPerformed(evt);
+            }
+        });
         jPanelSouth.add(jButtonInscribir);
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -96,16 +102,27 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    private void jButtonInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInscribirActionPerformed
+        // TODO add your handling code here:
+        String alumnoSeleccionado = (String) jComboBoxAlumno.getSelectedItem();
+        String materiaSeleccionada = (String) jComboBoxMateria.getSelectedItem();
+        if (alumnoSeleccionado != null && materiaSeleccionada != null) {
+            JOptionPane.showMessageDialog(this, "El alumno: " + alumnoSeleccionado + " a sido inscripto a la carrera: " + materiaSeleccionada);
+        }else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un alumno y una materia.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButtonInscribirActionPerformed
+
     public void cargarAlumnos() {
-        VistaPrincipal.alumnosSet.forEach((alumno) -> {
+        for (Alumno alumno: VistaPrincipal.alumnosSet) {
             jComboBoxAlumno.addItem(alumno.getNombre() +" "+ alumno.getApellido());
-        });
+        }
     }
     
     public void cargarMaterias() {
-        VistaPrincipal.materiasSet.forEach((materia) -> {
+        for (Materia materia: VistaPrincipal.materiasSet) {
             jComboBoxMateria.addItem(materia.getNombre() +" "+ materia.getIdMateria());
-        });
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonInscribir;

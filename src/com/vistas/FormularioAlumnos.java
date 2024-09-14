@@ -126,17 +126,21 @@ public class FormularioAlumnos extends javax.swing.JInternalFrame {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-        int legajo = Integer.parseInt(jTextFieldLegajo.getText());
-        String apellido = jTextFieldApellido.getText();
-        String nombre = jTextFieldNombre.getText();
+        try {
+            int legajo = Integer.parseInt(jTextFieldLegajo.getText());
+            String apellido = jTextFieldApellido.getText();
+            String nombre = jTextFieldNombre.getText();
         
-        Alumno alumno = new Alumno(legajo, apellido, nombre);
-        VistaPrincipal.alumnosSet.add(alumno);
-        JOptionPane.showMessageDialog(null, "Alumno guardado exitosamente.");
-        
-        jTextFieldApellido.setText("");
-        jTextFieldLegajo.setText("");
-        jTextFieldNombre.setText("");
+            Alumno alumno = new Alumno(legajo, apellido, nombre);
+            VistaPrincipal.alumnosSet.add(alumno);
+            JOptionPane.showMessageDialog(null, "Alumno guardado exitosamente.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Intentelo de nuevo");
+        }finally {
+            jTextFieldApellido.setText("");
+            jTextFieldLegajo.setText("");
+            jTextFieldNombre.setText("");
+        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 
