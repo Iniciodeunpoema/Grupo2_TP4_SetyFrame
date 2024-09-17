@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vistas;
+package vistas;
 
-import com.colegio.Materia;
+import colegio.Materia;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,7 +31,7 @@ public class FormularioMaterias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        formularioInscripcion1 = new com.vistas.FormularioInscripcion();
+        formularioInscripcion1 = new vistas.FormularioInscripcion();
         jPanelSouth = new javax.swing.JPanel();
         jButtonGuardar = new javax.swing.JButton();
         jButtonNuevo = new javax.swing.JButton();
@@ -145,7 +145,7 @@ public class FormularioMaterias extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.vistas.FormularioInscripcion formularioInscripcion1;
+    private vistas.FormularioInscripcion formularioInscripcion1;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonNuevo;
     private javax.swing.JButton jButtonSalir;

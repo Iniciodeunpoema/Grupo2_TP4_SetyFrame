@@ -1,5 +1,5 @@
 
-package com.colegio;
+package colegio;
 
 import java.util.HashSet;
 

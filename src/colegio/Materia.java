@@ -1,5 +1,5 @@
 
-package com.colegio;
+package colegio;
 
 public class Materia {
     private int idMateria;

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vistas;
+package vistas;
 
-import com.colegio.Alumno;
+import colegio.Alumno;
 import javax.swing.JOptionPane;
 
 /**
