@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vistas;
+package vistas;
 
-import com.colegio.Alumno;
-import com.colegio.Materia;
+import entidades.Alumno;
+import entidades.Materia;
 import java.util.HashSet;
 
 /**

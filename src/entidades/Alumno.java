@@ -1,5 +1,5 @@
 
-package com.colegio;
+package entidades;
 
 import java.util.HashSet;
 

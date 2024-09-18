@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vistas;
+package vistas;
 
-import com.colegio.Materia;
+import entidades.Materia;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,7 +31,7 @@ public class FormularioMaterias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        formularioInscripcion1 = new com.vistas.FormularioInscripcion();
+        formularioInscripcion1 = new vistas.FormularioInscripcion();
         jPanelSouth = new javax.swing.JPanel();
         jButtonGuardar = new javax.swing.JButton();
         jButtonNuevo = new javax.swing.JButton();
@@ -126,22 +126,31 @@ public class FormularioMaterias extends javax.swing.JInternalFrame {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-        int idMateria = Integer.parseInt(jTextFieldCodigo.getText());
-        String materiaNombre = jTextFieldNombreMateria.getText();
-        int anio = Integer.parseInt(jTextFieldAnio.getText());
+        try {
+            if (jTextFieldAnio.getText().isEmpty() || jTextFieldCodigo.getText().isEmpty() || jTextFieldNombreMateria.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+            }
+            int idMateria = Integer.parseInt(jTextFieldCodigo.getText());
+            String materiaNombre = jTextFieldNombreMateria.getText();
+            int anio = Integer.parseInt(jTextFieldAnio.getText());
         
-        Materia materia = new Materia(idMateria, title, anio);
-        VistaPrincipal.materiasSet.add(materia);
-        JOptionPane.showMessageDialog(null, "Materia guardada exitosamente.");
+            Materia materia = new Materia(idMateria, materiaNombre, anio);
+            VistaPrincipal.materiasSet.add(materia);
+            JOptionPane.showMessageDialog(null, "Materia guardada exitosamente.");
         
-        jTextFieldAnio.setText("");
-        jTextFieldCodigo.setText("");
-        jTextFieldNombreMateria.setText("");
+            jTextFieldAnio.setText("");
+            jTextFieldCodigo.setText("");
+            jTextFieldNombreMateria.setText("");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Se espera un numero en anio y codigo de materia!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.vistas.FormularioInscripcion formularioInscripcion1;
+    private vistas.FormularioInscripcion formularioInscripcion1;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonNuevo;
     private javax.swing.JButton jButtonSalir;

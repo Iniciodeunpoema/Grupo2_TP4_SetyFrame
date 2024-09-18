@@ -1,5 +1,5 @@
 
-package com.colegio;
+package entidades;
 
 public class Materia {
     private int idMateria;

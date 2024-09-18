@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vistas;
+package vistas;
 
-import com.colegio.Alumno;
+import entidades.Alumno;
 import javax.swing.JOptionPane;
 
 /**
@@ -126,17 +126,24 @@ public class FormularioAlumnos extends javax.swing.JInternalFrame {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // TODO add your handling code here:
-        int legajo = Integer.parseInt(jTextFieldLegajo.getText());
-        String apellido = jTextFieldApellido.getText();
-        String nombre = jTextFieldNombre.getText();
+        try {
+            if (jTextFieldApellido.getText().isEmpty() || jTextFieldLegajo.getText().isEmpty() || jTextFieldNombre.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+            }
+            int legajo = Integer.parseInt(jTextFieldLegajo.getText());
+            String apellido = jTextFieldApellido.getText();
+            String nombre = jTextFieldNombre.getText();
         
-        Alumno alumno = new Alumno(legajo, apellido, nombre);
-        VistaPrincipal.alumnosSet.add(alumno);
-        JOptionPane.showMessageDialog(null, "Alumno guardado exitosamente.");
+            Alumno alumno = new Alumno(legajo, apellido, nombre);
+            VistaPrincipal.alumnosSet.add(alumno);
+            JOptionPane.showMessageDialog(null, "Alumno guardado exitosamente.");
         
-        jTextFieldApellido.setText("");
-        jTextFieldLegajo.setText("");
-        jTextFieldNombre.setText("");
+            jTextFieldApellido.setText("");
+            jTextFieldLegajo.setText("");
+            jTextFieldNombre.setText("");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Se espera un número en el código de materia o año.", "Error", JOptionPane.ERROR_MESSAGE);        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 

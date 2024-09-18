@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vistas;
+package vistas;
 
-import com.colegio.Alumno;
-import com.colegio.Materia;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +44,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jButtonInscribir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonInscribir.setText("Inscribir");
         jButtonInscribir.setPreferredSize(new java.awt.Dimension(120, 100));
+        jButtonInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInscribirActionPerformed(evt);
+            }
+        });
         jPanelSouth.add(jButtonInscribir);
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -96,6 +100,13 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    private void jButtonInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInscribirActionPerformed
+        // TODO add your handling code here:
+        String seleccionado1 = (String) jComboBoxAlumno.getSelectedItem();
+        String seleccionado2 = (String) jComboBoxMateria.getSelectedItem();
+        JOptionPane.showMessageDialog(this, seleccionado1 + seleccionado2);
+    }//GEN-LAST:event_jButtonInscribirActionPerformed
+
     public void cargarAlumnos() {
         VistaPrincipal.alumnosSet.forEach((alumno) -> {
             jComboBoxAlumno.addItem(alumno.getNombre() +" "+ alumno.getApellido());
@@ -104,7 +115,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     public void cargarMaterias() {
         VistaPrincipal.materiasSet.forEach((materia) -> {
-            jComboBoxMateria.addItem(materia.getNombre() +" "+ materia.getIdMateria());
+            jComboBoxMateria.addItem(materia.getNombre() +" "+ materia.getAnio());
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
