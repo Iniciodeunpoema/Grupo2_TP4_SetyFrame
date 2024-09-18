@@ -145,7 +145,6 @@ public class FormularioMaterias extends javax.swing.JInternalFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Se espera un numero en anio y codigo de materia!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 

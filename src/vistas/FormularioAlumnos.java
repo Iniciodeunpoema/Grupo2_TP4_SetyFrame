@@ -143,7 +143,8 @@ public class FormularioAlumnos extends javax.swing.JInternalFrame {
             jTextFieldLegajo.setText("");
             jTextFieldNombre.setText("");
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Se espera un número en el código de materia o año.", "Error", JOptionPane.ERROR_MESSAGE);        }
+            JOptionPane.showMessageDialog(this, "Se espera un número en el código de materia o año.", "Error", JOptionPane.ERROR_MESSAGE);        
+        }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 
